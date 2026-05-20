@@ -9,31 +9,26 @@
 
 import random
 
-while True:
-    # Já colocamos o .lower() direto aqui para limpar a entrada na hora!
-    escolha_jogador = input('Escolha qual será sua jogada (pedra, papel ou tesoura): ').lower()
-    
-    # Criamos uma lista com as opções válidas
-    opcoes_validas = ['pedra', 'papel', 'tesoura']
-    
-    # Usamos o operador 'in' para checar se a resposta está na lista
-    if escolha_jogador in opcoes_validas:
-        escolha_computador = random.choice(opcoes_validas)
-        print(f'MINHA JOGADA FOI {escolha_computador}')
-        if escolha_jogador == escolha_computador:
-            print('Resultado: Deu Empate! 🤝')
-            break
+opcoes = ['pedra', 'papel', 'tesoura']
 
-        elif(escolha_jogador == 'pedra' and escolha_computador == 'tesoura') or \
-            (escolha_jogador == 'tesoura' and escolha_computador == 'papel') or \
-            (escolha_jogador == 'papel' and escolha_computador == 'pedra'):
-            print('Resultado: Você Venceu! 🎉 Parabéns!')
-            break
-            
-        else:
-            print('Resultado: O Computador Venceu! 🤖')
-            break # Sai do loop e continua o jogo
+opcao_maquina = random.choice(opcoes)
+opcao_jogador = input('Qual será sua jogada(pedra, papel ou tesoura)? ')
+opcao_jogador_formatada = opcao_jogador.lower()
+
+if opcao_jogador_formatada in opcoes:
+    if opcao_jogador_formatada == opcao_maquina:
+        print(f'A maquina escolheu: {opcao_maquina}')
+        print(f'Você escolheu: {opcao_jogador_formatada}')
+        print('Empate!!!')
+    elif (opcao_jogador_formatada == 'pedra' and opcao_maquina == 'tesoura') or \
+         (opcao_jogador_formatada == 'papel' and opcao_maquina == 'pedra') or \
+         (opcao_jogador_formatada == 'tesoura' and opcao_maquina == 'papel'):
+        print(f'A maquina escolheu: {opcao_maquina}')
+        print(f'Você escolheu: {opcao_jogador_formatada}')
+        print('Você ganhou!')
     else:
-        print("Opção inválida! Tente novamente.")
-        # Não precisa do segundo input aqui embaixo, o while True já vai voltar para o começo!
-
+        print(f'A maquina escolheu: {opcao_maquina}')
+        print(f'Você escolheu: {opcao_jogador_formatada}')
+        print('Você perdeu!')
+else:
+    print('ERRO, OPÇÃO INVÁLIDA!')

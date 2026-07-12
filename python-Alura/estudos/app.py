@@ -1,7 +1,7 @@
 from classes import restaurante
 
 restaurante_praça = restaurante('praça', 'gourmet')
-restaurante_plaza = restaurante('plaza', 'pizza')
+restaurante_plaza = restaurante('plaza', 'pizzaa')
 restaurante_japa = restaurante('japones', 'japonesa')
 
 restaurante_praça.receber_avaliacao('Hugo', 2)
